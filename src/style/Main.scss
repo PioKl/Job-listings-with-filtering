@@ -1,0 +1,139 @@
+@import "./App.scss";
+
+.main {
+    display: grid;
+    row-gap: 5rem;
+    padding: 10rem 10vw 0 10vw;
+}
+
+.btn {
+    color: $desaturatedDarkCyan;
+    background-color: $lightGrayishCyanFt;
+    border: 0;
+    padding: 1rem;
+    font-family: inherit;
+    font-weight: 700;
+    border-radius: 5px;
+    font-size: 1.3rem;
+    cursor: pointer;
+
+    //margin-right: 1rem;
+}
+
+.job-offers {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid red;
+    background-color: white;
+    height: 15rem;
+    align-items: center;
+    position: relative;
+
+    @media only screen and (max-width: 870px) {
+        flex-direction: column;
+    }
+
+    &__info {
+        padding-left: 2.5rem;
+    }
+
+    &__offer {
+        display: flex;
+
+        &-img {
+
+            /*             @media only screen and (max-width: 870px) {
+                position: relative;
+                transform: translate(-100%, -50%);
+                width: 50px;
+            } */
+        }
+
+        &-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            margin-left: 3rem;
+        }
+    }
+
+    &__first-info {
+        display: flex;
+
+        /*         p {
+            padding: 0 1rem 0 1rem;
+        } */
+        :not(:last-child) {
+            margin-right: 1rem;
+        }
+
+        align-items: center;
+    }
+
+    &__company {
+        color: $desaturatedDarkCyan;
+        font-weight: 700;
+        font-size: 1.3rem;
+    }
+
+    &__new {
+        background-color: $desaturatedDarkCyan;
+        color: white;
+        border-radius: 10rem;
+        padding: .5rem 1rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: .8rem;
+    }
+
+    &__featured {
+        color: white;
+        background-color: $veryDarkGrayishCyan;
+        border-radius: 10rem;
+        padding: .5rem 1rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: .8rem;
+    }
+
+    &__second-info {}
+
+    &__third-info {
+        display: flex;
+        color: $darkGrayishCyan;
+        font-size: 1.3rem;
+
+        :not(:last-child) {
+            margin-right: 3rem;
+
+            &:after {
+                content: '';
+                transform: translate(200%, 100%);
+                border-radius: 100%;
+                position: absolute;
+                background: $darkGrayishCyan;
+                height: .5rem;
+                width: .5rem;
+            }
+        }
+
+    }
+
+    &__filters {
+        padding-right: 2.5rem;
+
+        ul {
+            display: flex;
+
+            li {
+
+                /* padding: 1rem;
+                font-size: 1.3rem; */
+                &:not(:last-child) {
+                    margin-right: 1rem;
+                }
+
+            }
+        }
+    }
+}
