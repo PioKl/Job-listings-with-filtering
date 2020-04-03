@@ -1,12 +1,23 @@
 import React from 'react';
 import '../style/Main.scss';
 import photosnap from '../img/photosnap.svg';
+import iconRemove from '../img/icon-remove.svg';
+
 const Main = () => {
     return (
         <main className="main">
-            <div className="job-offers">
+            <div className="filters">
+                <ul className="filters__list">
+                    <li className="filters__item">Frontend<button className="filters__item-remove"><img className="filters__remove-img" src={iconRemove} alt="iconRemove" /></button></li>
+                    <li className="filters__item">Javascript<button className="filters__item-remove"><img className="filters__remove-img" src={iconRemove} alt="iconRemove" /></button></li>
+                    <li className="filters__item">HTML<button className="filters__item-remove"><img className="filters__remove-img" src={iconRemove} alt="iconRemove" /></button></li>
+                    <li className="filters__item">CSS<button className="filters__item-remove"><img className="filters__remove-img" src={iconRemove} alt="iconRemove" /></button></li>
+                </ul>
+                <button className="filters__clear">Clear</button>
+            </div>
+            <div className="job-offers job-offers--featured">
                 <div className="job-offers__info">
-                    <figapction className="job-offers__offer">
+                    <figcaption className="job-offers__offer">
                         <img className="job-offers__offer-img" src={photosnap} alt={photosnap} />
                         <div className="job-offers__offer-info">
                             <div className="job-offers__first-info">
@@ -23,18 +34,21 @@ const Main = () => {
                                 <p className="job-offers__where">USA only</p>
                             </div>
                         </div>
-                    </figapction>
+                    </figcaption>
                 </div>
-                <div className="job-offers__filters">
-                    <ul className="job-offers__list">
-                        <li className="job-offers__role job-offers__list-item"><button className="btn">Frontend</button></li>
-                        <li className="job-offers__level job-offers__list-item"><button className="btn">Senior</button></li>
-                        <li className="job-offers__languages job-offers__list-item"><button className="btn">HTML</button></li>
-                        <li className="job-offers__languages job-offers__list-item"><button className="btn">CSS</button></li>
-                        <li className="job-offers__languages job-offers__list-item"><button className="btn">JavaScript</button></li>
+                <div className="job-offers__skills">
+                    <ul className="job-offers__skills-list">
+                        <li className="job-offers__skills-item"><button className="job-offers__skills-btn">Frontend</button></li>
+                        <li className="job-offers__skills-item"><button className="job-offers__skills-btn">Senior</button></li>
+                        <li className="job-offers__skills-item"><button className="job-offers__skills-btn">HTML</button></li>
+                        <li className="job-offers__skills-item"><button className="job-offers__skills-btn">CSS</button></li>
+                        <li className="job-offers__skills-item"><button className="job-offers__skills-btn">JavaScript</button></li>
                     </ul>
                 </div>
             </div>
+
+
+
         </main>
     );
 }
