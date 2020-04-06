@@ -11,10 +11,37 @@ const Main = () => {
             console.log(filter1)
         }) */
     const [data, setData] = useState([]);
+    //const [filteredData, setFilteredData] = useState([]);
+    const [filters, setFilters] = useState([]);
+
+    //setFilters(filters => [...filters, filter1]);
+
+    const handleAddFilter = (e) => {
+        //setFilters([...filters, e.target.value])
+        const updateFilters = [...filters];
+        if (updateFilters.indexOf(e.target.value) === -1) { //jesli takiego filtra jeszcze nie ma to dodaj
+            updateFilters.push(e.target.value);
+        }
+        else {
+            return //w przeciwnym wypadku nic nie rob
+        }
+        setFilters(updateFilters);
+    }
+
+    const handleClearFilters = () => {
+        setFilters([]);
+    }
+
+    const handleRemoveFilter = (e) => {
+        console.log(e.currentTarget.value)
+        const updateFilters = [...filters];
+        const filtersAfterDelete = updateFilters.filter(item => item !== e.currentTarget.value)
+        setFilters(filtersAfterDelete)
+    }
 
     useEffect(() => {
         axios
-            .get('https://api.jsonbin.io/b/5e8884988841e979d0fd84ed/4')
+            .get('https://api.jsonbin.io/b/5e8884988841e979d0fd84ed/5') //własne utworzenie api poprzez json, gdzie zostały dodane niezbędne dane
             .then(res => {
                 console.log(res);
                 setData(res.data.jobs);
@@ -24,22 +51,58 @@ const Main = () => {
             })
     }, [])
 
+    /* if (filters.length > 0) { */
+    /*     const filterki = data;
+        const nowefilterki = filterki.filter(job => {
+            return job.skills.includes(filters[0]);
+        })
+        console.log(nowefilterki)
+        console.log(filters) */
+    /* } */
+
+    //const filterki = data;
+    /*     const tabkaposortowana = filters.map(item => {
+            return item;
+        }) */
+    /*     const nowefilterki = filterki.filter(job => {
+            return job.skills.includes(filters);
+        }) */
+    const dataWithFilter = data.filter(job => {
+        //https://stackoverflow.com/questions/54837999/specify-multiple-integers-with-javascript-includes
+        return filters.every(filter => job.skills.includes(filter));
+    })
+    /*     const nowefilterki = filterki.filter(job => {
+            return filters.some(el => job.skills.includes(el)); //dziala ale dla OR
+        }) */
+    console.log(dataWithFilter)
+    console.log(filters)
+    /*     console.log(filters.join(" && ")) */
+    //console.log(tabkaposortowana)
+
     /*     const status = data.map(job => (
             <p className={`job-offers__${job.status}`}>{job.status}</p>
         )) */
-    console.log(data.map(job => job.status))
+    //console.log(data.map(job => job.status))
     return (
         <main className="main">
-            <div className="filters">
+            {/* <p>{filters}</p> */}
+            {filters.length > 0 && <div className="filters">
                 <ul className="filters__list">
+                    {filters.map(filter => (
+                        <li className="filters__item">{filter}<button value={filter} className="filters__item-remove" onClick={handleRemoveFilter}><img className="filters__remove-img" src={iconRemove} alt="iconRemove" /></button></li>
+                    ))}
+                </ul>
+                <button className="filters__clear" onClick={handleClearFilters}>Clear</button>
+                {/*                 <ul className="filters__list">
                     <li className="filters__item">Frontend<button className="filters__item-remove"><img className="filters__remove-img" src={iconRemove} alt="iconRemove" /></button></li>
                     <li className="filters__item">Javascript<button className="filters__item-remove"><img className="filters__remove-img" src={iconRemove} alt="iconRemove" /></button></li>
                     <li className="filters__item">HTML<button className="filters__item-remove"><img className="filters__remove-img" src={iconRemove} alt="iconRemove" /></button></li>
                     <li className="filters__item">CSS<button className="filters__item-remove"><img className="filters__remove-img" src={iconRemove} alt="iconRemove" /></button></li>
                 </ul>
-                <button className="filters__clear">Clear</button>
-            </div>
-            {data.map(job => (
+                <button className="filters__clear">Clear</button> */}
+            </div>}
+
+            {dataWithFilter.map(job => (
                 <div className={`job-offers job-offers${job.featured && `--featured`}`}>
                     <div className="job-offers__info">
                         <figcaption className="job-offers__offer">
@@ -67,7 +130,8 @@ const Main = () => {
                     <div className="job-offers__skills">
                         <ul className="job-offers__skills-list">
                             {job.skills.map((skill, index) => (
-                                <li className="job-offers__skills-item"><button value={skill} onClick={e => setFilter1(e.target.value)} className="job-offers__skills-btn">{skill}</button></li>
+                                /* <li className="job-offers__skills-item"><button value={skill} onClick={e => setFilter1(e.target.value)} className="job-offers__skills-btn">{skill}</button></li> */
+                                <li className="job-offers__skills-item"><button value={skill} onClick={handleAddFilter} className="job-offers__skills-btn">{skill}</button></li>
                             ))}
                             {/* <li className="job-offers__skills-item"><button value="Frontend" onClick={e => setFilter1(e.target.value)} className="job-offers__skills-btn">Frontend</button></li>
                             <li className="job-offers__skills-item"><button className="job-offers__skills-btn">Senior</button></li>
