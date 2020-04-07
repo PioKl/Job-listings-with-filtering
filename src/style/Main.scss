@@ -279,32 +279,27 @@
             padding-bottom: 1.5rem;
         }
 
-
-
-        ul {
+        &-list {
             display: flex;
+        }
 
-            li {
-
-                /* padding: 1rem;
-                font-size: 1.3rem; */
-                &:not(:last-child) {
-                    margin-right: 1rem;
-                }
-
+        &-item {
+            &:not(:last-child) {
+                margin-right: 1rem;
             }
         }
 
         @media only screen and (max-width: $medium) {
             padding-left: 2.5rem;
 
-            ul {
+            &-list {
                 flex-wrap: wrap;
-
-                li {
-                    padding: 2rem .1rem 2rem 0rem;
-                }
             }
+
+            &-item {
+                padding: 2rem .1rem 2rem 0rem;
+            }
+
         }
     }
 }
