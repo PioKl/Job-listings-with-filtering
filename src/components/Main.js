@@ -45,7 +45,7 @@ const Main = () => {
     //Filtrowanie danych do wyświetlenia na podstawie wybranych filtrów
     const dataWithFilter = data.filter(job => {
         //https://stackoverflow.com/questions/54837999/specify-multiple-integers-with-javascript-includes
-        return filters.every(filter => job.skills.includes(filter));
+        return filters.every(filter => job.skills.includes(filter)); //wyswietl te oferty, ktore zawieraja sobie wszystkie skille z tego co uzytkownik wybral w filters
     })
 
     return (
