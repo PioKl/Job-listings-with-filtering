@@ -102,18 +102,6 @@
     }
 }
 
-/* .btn {
-    color: $desaturatedDarkCyan;
-    background-color: $lightGrayishCyanFt;
-    border: 0;
-    padding: 1rem;
-    font-family: inherit;
-    font-weight: 700;
-    border-radius: 5px;
-    font-size: 1.3rem;
-    cursor: pointer;
-} */
-
 .job-offers {
     display: flex;
     justify-content: space-between;
@@ -127,10 +115,8 @@
 
     @media only screen and (max-width: $medium) {
         margin-top: 0rem;
-        //margin: 0 auto;
         flex-direction: column;
         align-items: flex-start;
-        //width: 500px;
         height: auto;
     }
 
@@ -179,15 +165,11 @@
 
     &__first-info {
         display: flex;
+        align-items: center;
 
-        /*         p {
-            padding: 0 1rem 0 1rem;
-        } */
         :not(:last-child) {
             margin-right: 1rem;
         }
-
-        align-items: center;
 
         @media only screen and (max-width: $medium) {
             justify-content: flex-start;
@@ -200,31 +182,33 @@
         font-size: 1.3rem;
     }
 
-    &__new {
-        background-color: $desaturatedDarkCyan;
+    &__new,
+    &__featured {
         color: white;
         border-radius: 10rem;
         padding: .6rem 1rem;
         text-transform: uppercase;
         font-weight: 700;
         font-size: .8rem;
+    }
+
+    &__new {
+        background-color: $desaturatedDarkCyan;
 
         &:after {
             content: "!";
         }
     }
 
-    &__featured {
-        color: white;
-        background-color: $veryDarkGrayishCyan;
-        border-radius: 10rem;
-        padding: .6rem 1rem;
-        text-transform: uppercase;
-        font-weight: 700;
-        font-size: .8rem;
+    &__job-name {
+        &:hover {
+            color: $desaturatedDarkCyan;
+        }
     }
 
-    &__second-info {}
+    &__featured {
+        background-color: $veryDarkGrayishCyan;
+    }
 
     &__third-info {
         display: flex;
