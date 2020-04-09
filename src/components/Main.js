@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../style/Main.scss';
 import iconRemove from '../img/icon-remove.svg';
+import Footer from "./Footer";
 
 const Main = () => {
 
@@ -11,6 +12,7 @@ const Main = () => {
             .then(res => {
                 console.log(res);
                 setData(res.data.jobs);
+                setIsLoaded(true);
             })
             .catch(err => {
                 console.log(err);
@@ -19,6 +21,7 @@ const Main = () => {
 
     const [data, setData] = useState([]);
     const [filters, setFilters] = useState([]);
+    const [isLoaded, setIsLoaded] = useState(false);
 
     const handleAddFilter = (e) => {
         const updateFilters = [...filters];
@@ -49,50 +52,53 @@ const Main = () => {
     })
 
     return (
-        <main className="main">
-            {/* Jeśli użytkownik dodał jakiś filtr wtedy dopiero może się ten div pojawić */}
-            {filters.length > 0 && <div className="filters">
-                <ul className="filters__list">
-                    {filters.map((filter, index) => (
-                        <li key={index} className="filters__item">{filter}<button value={filter} className="filters__item-remove" onClick={handleRemoveFilter}><img className="filters__remove-img" src={iconRemove} alt="iconRemove" /></button></li>
-                    ))}
-                </ul>
-                <button className="filters__clear" onClick={handleClearFilters}>Clear</button>
-            </div>}
+        <>
+            <main className="main">
+                {/* Jeśli użytkownik dodał jakiś filtr wtedy dopiero może się ten div pojawić */}
+                {filters.length > 0 && <div className="filters">
+                    <ul className="filters__list">
+                        {filters.map((filter, index) => (
+                            <li key={index} className="filters__item">{filter}<button value={filter} className="filters__item-remove" onClick={handleRemoveFilter}><img className="filters__remove-img" src={iconRemove} alt="iconRemove" /></button></li>
+                        ))}
+                    </ul>
+                    <button className="filters__clear" onClick={handleClearFilters}>Clear</button>
+                </div>}
 
-            {dataWithFilter.map((job, index) => (
-                <div key={index} className={`job-offers job-offers${job.featured && `--featured`}`}>
-                    <div className="job-offers__info">
-                        <figcaption className="job-offers__offer">
-                            <img className="job-offers__offer-img" src={require(`../img/${job.companyImg}`)} alt="companyPhoto" />
-                            <div className="job-offers__offer-info">
-                                <div className="job-offers__first-info">
-                                    <p className="job-offers__company">{job.company}</p>
-                                    {job.status.map((status, index) => (
-                                        <p key={index} className={`job-offers__${status}`}>{status}</p>
-                                    ))}
+                {dataWithFilter.map((job, index) => (
+                    <div key={index} className={`job-offers job-offers${job.featured && `--featured`}`}>
+                        <div className="job-offers__info">
+                            <figcaption className="job-offers__offer">
+                                <img className="job-offers__offer-img" src={require(`../img/${job.companyImg}`)} alt="companyPhoto" />
+                                <div className="job-offers__offer-info">
+                                    <div className="job-offers__first-info">
+                                        <p className="job-offers__company">{job.company}</p>
+                                        {job.status.map((status, index) => (
+                                            <p key={index} className={`job-offers__${status}`}>{status}</p>
+                                        ))}
+                                    </div>
+                                    <div className="job-offers__second-info">
+                                        <h2 className="job-offers__job-name">{job.jobName}</h2>
+                                    </div>
+                                    <div className="job-offers__third-info">
+                                        <p className="job-offers__when-add">{job.whenAdd}</p>
+                                        <p className="job-offers__time">{job.jobTime}</p>
+                                        <p className="job-offers__where">{job.place}</p>
+                                    </div>
                                 </div>
-                                <div className="job-offers__second-info">
-                                    <h2 className="job-offers__job-name">{job.jobName}</h2>
-                                </div>
-                                <div className="job-offers__third-info">
-                                    <p className="job-offers__when-add">{job.whenAdd}</p>
-                                    <p className="job-offers__time">{job.jobTime}</p>
-                                    <p className="job-offers__where">{job.place}</p>
-                                </div>
-                            </div>
-                        </figcaption>
+                            </figcaption>
+                        </div>
+                        <div className="job-offers__skills">
+                            <ul className="job-offers__skills-list">
+                                {job.skills.map((skill, index) => (
+                                    <li key={index} className="job-offers__skills-item"><button value={skill} onClick={handleAddFilter} className="job-offers__skills-btn">{skill}</button></li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
-                    <div className="job-offers__skills">
-                        <ul className="job-offers__skills-list">
-                            {job.skills.map((skill, index) => (
-                                <li key={index} className="job-offers__skills-item"><button value={skill} onClick={handleAddFilter} className="job-offers__skills-btn">{skill}</button></li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
-            ))}
-        </main>
+                ))}
+            </main>
+            <Footer isLoaded={isLoaded} />
+        </>
     );
 }
 
