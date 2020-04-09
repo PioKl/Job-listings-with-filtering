@@ -215,6 +215,10 @@
         color: $darkGrayishCyan;
         font-size: 1.3rem;
 
+        @media only screen and (max-width: $medium) {
+            font-size: 1.2rem;
+        }
+
         :not(:last-child) {
             margin-right: 3rem;
 
