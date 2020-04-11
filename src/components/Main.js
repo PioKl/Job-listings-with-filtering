@@ -6,6 +6,10 @@ import Footer from "./Footer";
 
 const Main = () => {
 
+    const [data, setData] = useState([]);
+    const [filters, setFilters] = useState([]);
+    const [isLoaded, setIsLoaded] = useState(false);
+
     useEffect(() => {
         axios
             .get('https://api.jsonbin.io/b/5e8884988841e979d0fd84ed/5') //własne utworzenie api poprzez json, gdzie zostały dodane niezbędne dane
@@ -18,10 +22,6 @@ const Main = () => {
                 console.log(err);
             })
     }, [])
-
-    const [data, setData] = useState([]);
-    const [filters, setFilters] = useState([]);
-    const [isLoaded, setIsLoaded] = useState(false);
 
     const handleAddFilter = (e) => {
         const updateFilters = [...filters];
