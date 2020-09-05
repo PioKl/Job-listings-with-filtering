@@ -1,6 +1,7 @@
 LINK: https://piokl.github.io/Job-listings-with-filtering/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Głównym zadaniem aplikacji jest możliwość wyszukania interesującej oferty pracy. Zawiera filtry, które pomagają wyszukać daną ofertę na podstawie wybranych kategorii. W aplikacji utworzyłem własne API (https://jsonbin.io/), w którym trzymane są dane dotyczące ofert w formacie json. Wykorzystywany jest tu również axios.
+
 
 ## Available Scripts
 
