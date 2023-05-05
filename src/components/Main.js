@@ -15,7 +15,7 @@ const Main = () => {
             .get('https://api.jsonbin.io/v3/b/5e8884988841e979d0fd84ed') //własne utworzenie api poprzez json, gdzie zostały dodane niezbędne dane
             .then(res => {
                 console.log(res);
-                setData(res.data.jobs);
+                setData(res.data.record.jobs);
                 setIsLoaded(true);
             })
             .catch(err => {
