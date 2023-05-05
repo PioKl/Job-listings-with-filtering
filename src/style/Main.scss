@@ -1,0 +1,293 @@
+@import "./App.scss";
+
+%button {
+    color: $desaturatedDarkCyan;
+    background-color: $lightGrayishCyanFt;
+    border: 0;
+    font-family: inherit;
+    font-weight: 700;
+    border-radius: 5px;
+    font-size: 1.3rem;
+}
+
+.main {
+    display: grid;
+    row-gap: 5rem;
+    padding: 10rem 10vw 10rem 10vw;
+}
+
+.filters {
+    background-color: white;
+    box-shadow: 0rem 0rem 2rem .9rem rgba($veryDarkGrayishCyan, .2);
+    border-radius: 1rem;
+    min-height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: -20rem;
+    align-self: center;
+
+    @media only screen and (max-width: $medium) {
+        height: auto;
+    }
+
+    &__list {
+        display: flex;
+        padding-left: 2.5rem;
+
+        @media only screen and (max-width: $medium) {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__item {
+        @extend %button;
+        margin-right: 1rem;
+        margin-left: 1rem;
+        padding-left: 1rem;
+        display: flex;
+        align-items: center;
+
+        @media only screen and (max-width: $medium) {
+            margin: 1rem;
+        }
+    }
+
+    &__item-remove {
+        padding: 1rem;
+        margin-left: 1rem;
+        border: 0;
+        background-color: $desaturatedDarkCyan;
+        border-top-right-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $veryDarkGrayishCyan;
+        }
+
+        &:focus,
+        &:active {
+            outline: none;
+        }
+
+        &:focus {
+            box-shadow: 0 .1rem .5rem rgba($veryDarkGrayishCyan, .9);
+        }
+
+        &:active {
+            transform: translateY(-.2rem);
+            box-shadow: 0 .1rem .5rem rgba(black, .9);
+        }
+
+    }
+
+    &__remove-img {
+        display: block;
+    }
+
+    &__clear {
+        border: 0;
+        background-color: inherit;
+        font-family: inherit;
+        font-weight: 700;
+        margin-right: 2.5rem;
+        color: $desaturatedDarkCyan;
+        cursor: pointer;
+
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+        }
+    }
+}
+
+.job-offers {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    box-shadow: 0rem 0rem 2rem .9rem rgba($veryDarkGrayishCyan, .2);
+    height: 15rem;
+    align-items: center;
+    margin-top: -5rem;
+    margin-bottom: 5rem;
+    border-radius: 1rem;
+
+    @media only screen and (max-width: $medium) {
+        margin-top: 0rem;
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+    }
+
+    &--featured {
+        border-left: 1rem solid $desaturatedDarkCyan;
+    }
+
+    &__info {
+        padding-left: 2.5rem;
+        width: 95%;
+    }
+
+    &__offer {
+        display: flex;
+        position: relative;
+
+        @media only screen and (max-width: $medium) {
+            display: block;
+            border-bottom: .1rem solid $darkGrayishCyan;
+        }
+
+        &-img {
+
+            @media only screen and (max-width: $medium) {
+                position: relative;
+                transform: translate(-25%, -50%);
+                width: 50px;
+            }
+        }
+
+        &-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            margin-left: 3rem;
+
+            @media only screen and (max-width: $medium) {
+                margin-left: 0rem;
+
+                &>* {
+                    padding-bottom: 1rem;
+                }
+            }
+        }
+    }
+
+    &__first-info {
+        display: flex;
+        align-items: center;
+
+        :not(:last-child) {
+            margin-right: 1rem;
+        }
+
+        @media only screen and (max-width: $medium) {
+            justify-content: flex-start;
+        }
+    }
+
+    &__company {
+        color: $desaturatedDarkCyan;
+        font-weight: 700;
+        font-size: 1.3rem;
+    }
+
+    &__new,
+    &__featured {
+        color: white;
+        border-radius: 10rem;
+        padding: .6rem 1rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: .8rem;
+    }
+
+    &__new {
+        background-color: $desaturatedDarkCyan;
+
+        &:after {
+            content: "!";
+        }
+    }
+
+    &__job-name {
+        &:hover {
+            color: $desaturatedDarkCyan;
+        }
+    }
+
+    &__featured {
+        background-color: $veryDarkGrayishCyan;
+    }
+
+    &__third-info {
+        display: flex;
+        color: $darkGrayishCyan;
+        font-size: 1.3rem;
+
+        @media only screen and (max-width: $medium) {
+            font-size: 1.2rem;
+        }
+
+        :not(:last-child) {
+            margin-right: 3rem;
+
+            &:after {
+                content: '';
+                transform: translate(200%, 100%);
+                border-radius: 100%;
+                position: absolute;
+                background: $darkGrayishCyan;
+                height: .5rem;
+                width: .5rem;
+            }
+        }
+
+    }
+
+    &__skills {
+        padding-right: 2.5rem;
+
+        &-btn {
+            @extend %button;
+            padding: 1rem;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $desaturatedDarkCyan;
+                color: white;
+            }
+
+            &:focus,
+            &:active {
+                outline: none;
+            }
+
+            &:focus {
+                box-shadow: 0 .1rem 1rem rgba($veryDarkGrayishCyan, .5);
+            }
+
+            &:active {
+                transform: translateY(-.1rem);
+                box-shadow: 0 .5rem 1rem rgba($veryDarkGrayishCyan, .2);
+            }
+        }
+
+        @media only screen and (max-width: $medium) {
+            padding-bottom: 1.5rem;
+        }
+
+        &-list {
+            display: flex;
+        }
+
+        &-item {
+            &:not(:last-child) {
+                margin-right: 1rem;
+            }
+        }
+
+        @media only screen and (max-width: $medium) {
+            padding-left: 2.5rem;
+
+            &-list {
+                flex-wrap: wrap;
+            }
+
+            &-item {
+                padding: 2rem .1rem 2rem 0rem;
+            }
+
+        }
+    }
+}

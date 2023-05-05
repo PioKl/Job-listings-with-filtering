@@ -1,0 +1,39 @@
+/* =============
+Color Variables
+================*/
+
+/*Primary*/
+$desaturatedDarkCyan: hsl(180, 29%, 50%);
+/*Neutral*/
+$lightGrayishCyanBc: hsl(180, 52%, 96%); //Background
+$lightGrayishCyanFt: hsl(180, 31%, 95%); //Filter Tablets
+$darkGrayishCyan: hsl(180, 8%, 52%);
+$veryDarkGrayishCyan: hsl(180, 14%, 20%);
+
+
+/* ===============
+Default properties
+==================*/
+
+$medium : 64.81em; //1037px
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    text-decoration: none;
+    list-style: none;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; // 10px/16px = 62.5%, 1rem = 10px
+}
+
+body {
+    background-color: $lightGrayishCyanBc;
+    font-family: 'Spartan', sans-serif;
+    font-weight: 500;
+}
