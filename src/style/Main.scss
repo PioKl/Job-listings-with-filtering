@@ -201,6 +201,7 @@
     }
 
     &__job-name {
+        cursor: pointer;
         &:hover {
             color: $desaturatedDarkCyan;
         }

@@ -1,6 +1,7 @@
 @import "./App.scss";
 
 .footer {
+    min-height: 15.5rem;
     height: 15.5rem;
     background-color: #fff;
     display: flex;
@@ -8,7 +9,8 @@
     align-items: center;
     font-weight: 700;
     font-size: 1.4rem;
-    margin-top: 4rem;
+    //margin-top: 4rem;
+    margin-top: auto;
 
     @media only screen and (max-width: $medium) {
         font-size: 1.2rem;
