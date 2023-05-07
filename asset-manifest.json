@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Job-listings-with-filtering/static/css/main.221e3962.chunk.css",
+    "main.css": "/Job-listings-with-filtering/static/css/main.059cba5e.chunk.css",
     "main.js": "/Job-listings-with-filtering/static/js/main.56bd3791.chunk.js",
     "main.js.map": "/Job-listings-with-filtering/static/js/main.56bd3791.chunk.js.map",
     "runtime-main.js": "/Job-listings-with-filtering/static/js/runtime-main.d6b1fb01.js",
@@ -8,9 +8,9 @@
     "static/js/2.cb313b59.chunk.js": "/Job-listings-with-filtering/static/js/2.cb313b59.chunk.js",
     "static/js/2.cb313b59.chunk.js.map": "/Job-listings-with-filtering/static/js/2.cb313b59.chunk.js.map",
     "index.html": "/Job-listings-with-filtering/index.html",
-    "precache-manifest.24e9408a34763d10f6726d1da9bf33fa.js": "/Job-listings-with-filtering/precache-manifest.24e9408a34763d10f6726d1da9bf33fa.js",
+    "precache-manifest.56cbe23f3fc91e2133a8bd7ed920ef8c.js": "/Job-listings-with-filtering/precache-manifest.56cbe23f3fc91e2133a8bd7ed920ef8c.js",
     "service-worker.js": "/Job-listings-with-filtering/service-worker.js",
-    "static/css/main.221e3962.chunk.css.map": "/Job-listings-with-filtering/static/css/main.221e3962.chunk.css.map",
+    "static/css/main.059cba5e.chunk.css.map": "/Job-listings-with-filtering/static/css/main.059cba5e.chunk.css.map",
     "static/js/2.cb313b59.chunk.js.LICENSE.txt": "/Job-listings-with-filtering/static/js/2.cb313b59.chunk.js.LICENSE.txt",
     "static/media/account.svg": "/Job-listings-with-filtering/static/media/account.9f72c13b.svg",
     "static/media/bg-header-desktop.svg": "/Job-listings-with-filtering/static/media/bg-header-desktop.6e2f7196.svg",
@@ -29,7 +29,7 @@
   "entrypoints": [
     "static/js/runtime-main.d6b1fb01.js",
     "static/js/2.cb313b59.chunk.js",
-    "static/css/main.221e3962.chunk.css",
+    "static/css/main.059cba5e.chunk.css",
     "static/js/main.56bd3791.chunk.js"
   ]
 }
